@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles/normalize.css">
+  <link rel="stylesheet" href="styles/style.css">
+  <title>Пружинный маятник</title>
+</head>
+
+<body class="body">
+  <main class="main">
+    <h1 class="visually-hidden">Пружинный маятник</h1>
+    <div class="container flex">
+      <div class="left-block">
+        <canvas id="canvas" class="left-block__canvas"></canvas>
+
+        <div class="left-block__container-buttons container-buttons">
+          <button class="container-buttons__button button button-play">Play</button>
+          <button class="container-buttons__button button button-stop hide">Stop</button>
+        </div>
+      </div>
+
+      <div>
+        <form class="form">
+          <h2 class="form__title title">Параметры</h2>
+
+          <div class="form__container">
+            <label for="cargo-weight" class="form__label"> m - масса груза (в кг)</label>
+            <button class="form__button button decrement" aria-label="Уменьшить значение"
+              title="Уменьшить значение">-</button>
+            <input id="cargo-weight" class="input cargo-weight" type="number" data-id="1"
+              title="Введите значение от 0,5 до 1">
+            <button class="form__button button increment" aria-label="Увеличить значение"
+              title="Увеличить значение">+</button>
+          </div>
+
+          <div class="form__container">
+            <label for="spring-stiffness" class="form__label"> k - жесткость пружины (в Н/м)</label>
+            <button class="form__button button decrement" aria-label="Уменьшить значение"
+              title="Уменьшить значение">-</button>
+            <input id="spring-stiffness" class="input spring-stiffness" type="number" data-id="2"
+              title="Введите значение от 1 до 9">
+            <button class="form__button button increment" aria-label="Увеличить значение"
+              title="Увеличить значение">+</button>
+          </div>
+
+          <div class="form__container">
+            <label for="initial-coordinate-X" class="form__label"> X&#8320; - первоначальное отклонение от равновесия
+              (вниз) (в см)</label>
+            <button class="form__button button decrement" aria-label="Уменьшить значение"
+              title="Уменьшить значение">-</button>
+            <input id="initial-coordinate-X" class="input initial-coordinate-X" type="number" data-id="3"
+              title="Введите значение от 0 до 20">
+            <button class="form__button button increment" aria-label="Увеличить значение"
+              title="Увеличить значение">+</button>
+          </div>
+
+          <div class="warning"></div>
+        </form>
+
+        <div class="characteristic">
+          <h2 class="characteristic__title title">Характеристики</h2>
+
+          <ul class="characteristic__list list">
+            <li class="list__item item">Циклическая частота собственных колебаний (&#969;): <span
+                class="item__span result-cyclic-frequency"></span></li>
+            <li class="list__item item">Время колебаний (t): <span class="item__span result-time"></span></li>
+            <li class="list__item item">Количество полных колебаний: <span
+                class="item__span number-total-oscillations"></span></li>
+            <li class="list__item item">Координата (x): <span class="item__span current-coordinate-x"></span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </main>
+  <script src="scripts/script.js"></script>
+</body>
+
+</html>
