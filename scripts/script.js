@@ -132,16 +132,15 @@ function checkingEnteredData(input) {
     warnUser(inputParams, 'min');
 
   } else {
-    writingInputValue(input);
+    writingInputValue(inputParams, inputValue);
     return true;
   }
 }
 
 //записываем значение из инпут в объект значений
 
-function writingInputValue(input) {
-  let inputName = params.inputs.find((paramItem) => Number(input.dataset.id) === paramItem.id).name;
-  data.inputValues[inputName] = Number(input.value);
+function writingInputValue(inputParams, inputValue) {
+  data.inputValues[inputParams.name] = Number(inputValue);
 }
 
 //вывести предупреждение если некорректно заполнено поле (при вводе с клавиатуры)
@@ -152,12 +151,12 @@ function warnUser(paramInput, reason) {
     let message = null;
     let nameClass = null;
 
-    if (reason === 'max' && !document.querySelector('.max')) {
+    if (reason === 'max' && !document.querySelector(`.max-${paramInput.id}`)) {
       message = `Максимальное значение поля "${paramInput.title}" = "${paramInput.maxValue}"`;
-      nameClass = 'max';
-    } else if (reason === 'min' && !document.querySelector('.min')) {
+      nameClass = `max-${paramInput.id}`;
+    } else if (reason === 'min' && !document.querySelector(`.min-${paramInput.id}`)) {
       message = `Минимальное значение поля "${paramInput.title}" = "${paramInput.minValue}"`;
-      nameClass = 'min';
+      nameClass = `min-${paramInput.id}`;
     } else {
       return;
     }

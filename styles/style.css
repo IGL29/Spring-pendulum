@@ -181,6 +181,7 @@ html {
 
 .warn {
   margin-top: 0;
+  color: #e07373;
 }
 
 .warn:last-of-type {
